@@ -34,11 +34,11 @@ def update_prases(message):
 @bot.message_handler(content_types=['text'])
 def start_message(message):
     rndm_message = randomMessage()
-    if 'ромашк' in message.text.lower():
-        bot.send_message(message.chat.id, rndm_message)
-    if 'мудак' in message.text.lower():
-        bot.send_message(message.chat.id, "Сам ты мудак %s,иди работать!" % message.from_user.first_name)
     if 'хуев' in message.text.lower() or 'хуёв' in message.text.lower():
         bot.send_message(message.chat.id, 'ТААЧКААА')
+    elif 'мудак' in message.text.lower():
+        bot.send_message(message.chat.id, "Сам ты мудак %s,иди работать!" % message.from_user.first_name)
+    elif 'ромашк' in message.text.lower():
+        bot.send_message(message.chat.id, rndm_message)
 
 bot.polling()

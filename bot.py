@@ -26,23 +26,18 @@ def start_message(message):
     rndm_message = randomMessage()
     bot.send_message(message.chat.id, rndm_message)
 
-@bot.message_handler(content_types=['text'])
-def start_message(message):
-    rndm_message = randomMessage()
-    if 'ромашк' in message.text.lower():
-        bot.send_message(message.chat.id, rndm_message)
-
 @bot.message_handler(commands=['update'])
 def update_prases(message):
     os.popen('/opt/bot/get_phrases.py')
     bot.send_message(message.chat.id, str(phrases))
 
-@bot.message_handler(commands=['мудак'])
-def start_message(message):
-    bot.send_message(message.chat.id, "Сам ты мудак %s,иди работать!" % message.from_user.first_name)
-
 @bot.message_handler(content_types=['text'])
-def send_text(message):
+def start_message(message):
+    rndm_message = randomMessage()
+    if 'ромашк' in message.text.lower():
+        bot.send_message(message.chat.id, rndm_message)
+    if 'мудак' in message.text.lower():
+        bot.send_message(message.chat.id, "Сам ты мудак %s,иди работать!" % message.from_user.first_name)
     if 'хуев' in message.text.lower() or 'хуёв' in message.text.lower():
         bot.send_message(message.chat.id, 'ТААЧКААА')
 
